@@ -16,7 +16,7 @@ apt-get -y -q upgrade
 DEBIAN_FRONTEND=noninteractive apt-get -y -q install git sudo \
         python2.7 python-pip python-dev python3-pip python3-dev \
         tmux gdb gdb-multiarch foremost ipython stow build-essential \
-        ltrace strace socat tcpdump john hydra vim curl wget
+        ltrace strace socat tcpdump john hydra vim curl wget nmap python-dbg
 
 ## QEMU with MIPS/ARM - http://reverseengineering.stackexchange.com/questions/8829/cross-debugging-for-mips-elf-with-qemu-toolchain
 apt-get -y -q install qemu qemu-user qemu-user-static 'binfmt*' libc6-armhf-armel-cross debian-keyring debian-archive-keyring emdebian-archive-keyring
@@ -188,6 +188,11 @@ python scripts/mk_make.py
 cd build
 make install
 python ../scripts/mk_make.py --python
+
+cd /home/ctf/tools
+git clone https://github.com/BinaryAnalysisPlatform/qira.git
+cd qira/
+./install.sh
 
 # cd /home/ctf/tools
 # git clone https://github.com/sqlmapproject/sqlmap.git sqlmap-dev

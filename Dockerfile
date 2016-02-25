@@ -13,4 +13,7 @@ RUN cd /home/ctf/ && \
     bash /home/ctf/setup.sh && \
     chown -R ctf: /home/ctf/tools
 
+# qira
+EXPOSE 3002 3003 4000
+
 CMD ["/bin/bash", "-i"]
