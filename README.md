@@ -25,6 +25,16 @@ The image is also present on [docker hub](https://hub.docker.com/r/boogy/ctfbox/
 docker pull boogy/ctfbox
 ```
 
+
+Run the ctfbox
+================
+
+Start the image
+
+```bash
+docker run -it ctfbox
+```
+
 List of some tools installed and examples
 =============================================
 
