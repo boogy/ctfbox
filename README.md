@@ -5,7 +5,7 @@ When playing CTFs I like to have all the tools ready to rock when needed.
 This docker image will provide these tools installed on ubuntu:latest image.
 
 It's also possible to build this box using [Vagrant](https://www.vagrantup.com/).
-The script was inspired by [praetorian-inc/epictreasure](https://github.com/praetorian-inc/epictreasure)
+The script(s) war forked from [praetorian-inc/epictreasure](https://github.com/praetorian-inc/epictreasure)
 
 Installation
 =============
