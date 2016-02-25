@@ -25,3 +25,52 @@ The image is also present on [docker hub](https://hub.docker.com/r/boogy/ctfbox/
 docker pull boogy/ctfbox
 ```
 
+List of some tools installed and examples
+=============================================
+
+binjitsu
+------------
+
+```python
+from pwn import *
+context(arch = 'i386', os = 'linux')
+
+r = remote('exploitme.example.com', 31337)
+# EXPLOIT CODE GOES HERE
+r.send(asm(shellcraft.sh()))
+r.interactive()
+```
+
+Peda
+------
+
+## Screenshot
+![start](http://i.imgur.com/P1BF5mp.png)
+
+![pattern arg](http://i.imgur.com/W97OWRC.png)
+
+
+Pwndbg
+---------
+
+## Screenshots
+
+Here's a few screenshots of some of the cool things pwndbg does.
+
+![e](caps/e.png?raw=1)  
+*Function arguments*
+
+![f](caps/f.png?raw=1)  
+*Conditional jump evaluation and jump following*
+
+![g](caps/g.png?raw=1)  
+*More dump following*
+
+![h](caps/h.png?raw=1)  
+*RET following, useful for ROP*
+
+Here's a screenshot of `pwndbg` working on an aarch64 binary running under `qemu-user`.
+
+![a](caps/a.png?raw=1)
+
+
