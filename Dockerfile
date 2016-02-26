@@ -17,3 +17,4 @@ RUN cd /home/ctf/ && \
 EXPOSE 3002 3003 4000
 
 CMD ["/bin/bash", "-i"]
+

@@ -3,7 +3,6 @@
 # Script forked from praetorian-inc/epictreasure
 # https://github.com/praetorian-inc/epictreasure
 #
-
 ## create a user
 getent passwd ctf | useradd -m -s /bin/bash ctf
 chown -R ctf: /home/ctf && chmod 4750 /home/ctf
