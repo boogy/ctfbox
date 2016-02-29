@@ -15,7 +15,7 @@ RUN cd /home/ctf/ && \
     chown -R ctf: /home/ctf/tools
 
 EXPOSE 22
-EXPOSE 3002 3003 4000 # qira ports
+EXPOSE 3002 3003 4000
 
 USER ctf
 
