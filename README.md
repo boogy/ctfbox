@@ -67,6 +67,11 @@ r.send(asm(shellcraft.sh()))
 r.interactive()
 ```
 
+Radare2
+---------
+![radare2](http://radare.org/r/img/r2cg.png)
+![radare2 webui](http://radare.org/r/img/webui.png)
+
 Peda
 ------
 ![start](http://i.imgur.com/P1BF5mp.png)
