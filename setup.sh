@@ -191,7 +191,8 @@ python ../scripts/mk_make.py --python
 #./install.sh
 
 ## Python pip cool modules
-pip install r2pipe
-pip install distorm3
-pip install pycrypto
+pip install --upgrade r2pipe
+pip install --upgrade distorm3
+pip install --upgrade pycrypto
+pip install --upgrade git+https://github.com/hellman/xortool.git
 
