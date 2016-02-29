@@ -46,17 +46,17 @@ List of some tools installed and examples
   * [Afl](http://lcamtuf.coredump.cx/afl/)
   * [Angr](https://github.com/angr/angr)
   * [ROPgadget](https://github.com/JonathanSalwan/ROPgadget)
+  * [binjitsu](https://github.com/binjitsu/binjitsu) [binjitsu doc](https://binjitsu.readthedocs.org/en/latest)
   * [peda](https://github.com/longld/peda)
   * [pwndbg](https://github.com/zachriggle/pwndbg)
   * [preeny](https://github.com/zardus/preeny)
 
 
+Screenshots
+------------
+
 binjitsu - CTF toolkit
 ------------------------
-
-  * Link to [binjitsu](https://github.com/binjitsu/binjitsu) repo
-  * Link to [binjitsu](https://binjitsu.readthedocs.org/en/latest/)
-
 ```python
 from pwn import *
 context(arch = 'i386', os = 'linux')
@@ -66,9 +66,6 @@ r = remote('exploitme.example.com', 31337)
 r.send(asm(shellcraft.sh()))
 r.interactive()
 ```
-
-Screenshots
-------------
 
 Peda
 ------
