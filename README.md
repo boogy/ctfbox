@@ -5,7 +5,8 @@ When playing CTFs I like to have all the tools ready to rock when needed.
 This docker image will provide these tools installed on ubuntu:latest image.
 
 It's also possible to build this box using [Vagrant](https://www.vagrantup.com/).
-The script(s) war forked from [praetorian-inc/epictreasure](https://github.com/praetorian-inc/epictreasure)
+
+The script(s) was forked from [praetorian-inc/epictreasure](https://github.com/praetorian-inc/epictreasure)
 
 Installation
 =============
@@ -38,8 +39,23 @@ docker run -it ctfbox
 List of some tools installed and examples
 =============================================
 
-binjitsu
-------------
+  * [Z3 Solver](https://github.com/Z3Prover/z3)
+  * [Capstone](https://github.com/aquynh/capstone)
+  * [Binwalk](http://binwalk.org/)
+  * [radare2](https://github.com/radare/radare2)
+  * [Afl](http://lcamtuf.coredump.cx/afl/)
+  * [Angr](https://github.com/angr/angr)
+  * [ROPgadget](https://github.com/JonathanSalwan/ROPgadget)
+  * [peda](https://github.com/longld/peda)
+  * [pwndbg](https://github.com/zachriggle/pwndbg) repo
+  * [preeny](https://github.com/zardus/preeny)
+
+
+binjitsu - CTF toolkit
+------------------------
+
+  * Link to [binjitsu](https://github.com/binjitsu/binjitsu) repo
+  * Link to [binjitsu](https://binjitsu.readthedocs.org/en/latest/)
 
 ```python
 from pwn import *
@@ -51,21 +67,22 @@ r.send(asm(shellcraft.sh()))
 r.interactive()
 ```
 
+Screenshots
+------------
+
 Peda
 ------
-
-## Screenshot
 ![start](http://i.imgur.com/P1BF5mp.png)
-
-![pattern arg](http://i.imgur.com/W97OWRC.png)
 
 
 Pwndbg
 ---------
-
-## Screenshots
-
 Here's a screenshot of `pwndbg` working on an aarch64 binary running under `qemu-user`.
-
 ![aarch64](https://raw.githubusercontent.com/zachriggle/pwndbg/master/caps/a.png)
+
+
+ROPGadget
+-----------
+![x64-ropgadget](http://shell-storm.org/project/ROPgadget/x64.png)
+
 
