@@ -12,10 +12,10 @@ echo "ctf ALL=(ALL) NOPASSWD:ALL" > /etc/sudoeres.d/ctf
 ## Updates
 apt-get -y -q update
 apt-get -y -q upgrade
-DEBIAN_FRONTEND=noninteractive apt-get -y -q install git sudo \
-        python2.7 python-pip python-dev python3-pip python3-dev libffi-dev \
+DEBIAN_FRONTEND=noninteractive apt-get -y -q install git sudo p7zip autoconf libssl-dev libpcap-dev \
+        python2.7 python-pip python-dev python3-pip python3-dev libffi-dev clang nasm \
         tmux gdb gdb-multiarch foremost ipython stow build-essential virtualenvwrapper \
-        ltrace strace socat tcpdump john hydra vim curl wget nmap python-dbg \
+        ltrace strace socat tcpdump john hydra vim curl wget nmap python-dbg g++ gcc \
         netcat netcat6 openssh-server openssh-client lsof
 
 ## Install 32 bit libs also
@@ -163,9 +163,6 @@ apt-get build-dep python-imaging
 apt-get install -yq libjpeg8 libjpeg62-dev libfreetype6 libfreetype6-dev
 pip install Pillow
 
-## Install r2pipe
-pip install r2pipe
-
 ## Install angr-dev
 cd /home/ctf/tools
 git clone https://github.com/angr/angr-dev
@@ -192,4 +189,9 @@ cd /home/ctf/tools
 git clone https://github.com/BinaryAnalysisPlatform/qira.git
 cd qira/
 ./install.sh
+
+## Python pip cool modules
+pip install r2pipe
+pip install distorm3
+pip install pycrypto
 
