@@ -22,4 +22,3 @@ USER ctf
 WORKDIR /home/ctf
 
 CMD ["/bin/bash", "-i"]
-
