@@ -47,7 +47,7 @@ List of some tools installed and examples
   * [Angr](https://github.com/angr/angr)
   * [ROPgadget](https://github.com/JonathanSalwan/ROPgadget)
   * [peda](https://github.com/longld/peda)
-  * [pwndbg](https://github.com/zachriggle/pwndbg) repo
+  * [pwndbg](https://github.com/zachriggle/pwndbg)
   * [preeny](https://github.com/zardus/preeny)
 
 
