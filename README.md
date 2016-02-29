@@ -46,7 +46,7 @@ List of some tools installed and examples
   * [Afl](http://lcamtuf.coredump.cx/afl/)
   * [Angr](https://github.com/angr/angr)
   * [ROPgadget](https://github.com/JonathanSalwan/ROPgadget)
-  * [binjitsu](https://github.com/binjitsu/binjitsu) [binjitsu doc](https://binjitsu.readthedocs.org/en/latest)
+  * [binjitsu](https://github.com/binjitsu/binjitsu)
   * [peda](https://github.com/longld/peda)
   * [pwndbg](https://github.com/zachriggle/pwndbg)
   * [preeny](https://github.com/zardus/preeny)
