@@ -14,8 +14,8 @@ RUN cd /home/ctf/ && \
     bash /home/ctf/setup.sh && \
     chown -R ctf: /home/ctf/tools
 
-# qira ports
-EXPOSE 22 3002 3003 4000
+EXPOSE 22
+EXPOSE 3002 3003 4000 # qira ports
 
 USER ctf
 

@@ -185,10 +185,10 @@ make install
 python ../scripts/mk_make.py --python
 
 ## Install qira
-cd /home/ctf/tools
-git clone https://github.com/BinaryAnalysisPlatform/qira.git
-cd qira/
-./install.sh
+#cd /home/ctf/tools
+#git clone https://github.com/BinaryAnalysisPlatform/qira.git
+#cd qira/
+#./install.sh
 
 ## Python pip cool modules
 pip install r2pipe
