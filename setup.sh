@@ -13,13 +13,19 @@ echo "ctf ALL=(ALL) NOPASSWD:ALL" > /etc/sudoeres.d/ctf
 apt-get -y -q update
 apt-get -y -q upgrade
 DEBIAN_FRONTEND=noninteractive apt-get -y -q install git sudo \
-        python2.7 python-pip python-dev python3-pip python3-dev \
-        tmux gdb gdb-multiarch foremost ipython stow build-essential \
+        python2.7 python-pip python-dev python3-pip python3-dev libffi-dev \
+        tmux gdb gdb-multiarch foremost ipython stow build-essential virtualenvwrapper \
         ltrace strace socat tcpdump john hydra vim curl wget nmap python-dbg \
-        netcat netcat6 openssh-server openssh-client
+        netcat netcat6 openssh-server openssh-client lsof
+
+## Install 32 bit libs also
+dpkg --add-architecture i386
+apt-get update
+apt-get -yq install libc6:i386 libncurses5:i386 libstdc++6:i386
+apt-get -yq install libc6-dev-i386
 
 # Enable ssh by default in the container
-update-rc.d ssh defaults
+update-rc.d ssh defaults && service ssh start
 
 ## QEMU with MIPS/ARM - http://reverseengineering.stackexchange.com/questions/8829/cross-debugging-for-mips-elf-with-qemu-toolchain
 apt-get -y -q install qemu qemu-user qemu-user-static 'binfmt*' libc6-armhf-armel-cross debian-keyring debian-archive-keyring emdebian-archive-keyring
@@ -86,16 +92,16 @@ python setup.py install
 apt-get install -yq squashfs-tools
 
 ## Install Firmware-Mod-Kit
-apt-get -y -q install git build-essential zlib1g-dev liblzma-dev python-magic
-cd /home/ctf/tools
-wget https://firmware-mod-kit.googlecode.com/files/fmk_099.tar.gz
-tar xvf fmk_099.tar.gz
-rm fmk_099.tar.gz
-cd fmk_099/src
-./configure
-make
+#apt-get -y -q install zlib1g-dev liblzma-dev python-magic
+#cd /home/ctf/tools
+#wget https://firmware-mod-kit.googlecode.com/files/fmk_099.tar.gz
+#tar xvf fmk_099.tar.gz
+#rm fmk_099.tar.gz
+#cd fmk_099/src
+#./configure
+#make
 
-# Uninstall capstone
+## Uninstall capstone
 pip2 uninstall capstone -y
 
 ## Install correct capstone
@@ -105,12 +111,9 @@ python setup.py install
 ## Personal config not installed by default
 cd /home/ctf
 git clone https://github.com/boogy/dotfiles.git
-#cd dotfiles
-#cat install.sh | bash -i yes
 
 ## Install Angr framework
 cd /home/ctf/tools
-apt-get -yq install libffi-dev build-essential virtualenvwrapper
 pip install angr --upgrade
 
 ## Install american-fuzzy-lop
@@ -130,12 +133,6 @@ rm afl-latest.tgz
   make install
 )
 
-## Install 32 bit libs
-dpkg --add-architecture i386
-apt-get update
-apt-get -yq install libc6:i386 libncurses5:i386 libstdc++6:i386
-apt-get -yq install libc6-dev-i386
-
 ## Install apktool - from https://github.com/zardus/ctf-tools
 apt-get update
 apt-get install -yq default-jre
@@ -151,7 +148,6 @@ chmod 755 /bin/apktool.jar
 cd /home/ctf/tools
 git clone --depth 1 https://github.com/zardus/preeny
 PATH=$PWD/../crosstool/bin:$PATH
-
 cd preeny
 for i in ../../crosstool/bin/*-gcc
 do
@@ -162,26 +158,25 @@ PLATFORM=-m32 setarch i686 make -i
 mv x86_64-linux-gnu i686-linux-gnu
 make -i
 
-# Install Pillow
+## Install Pillow
 apt-get build-dep python-imaging
 apt-get install -yq libjpeg8 libjpeg62-dev libfreetype6 libfreetype6-dev
 pip install Pillow
 
-# Install r2pipe
+## Install r2pipe
 pip install r2pipe
 
-# Install angr-dev
+## Install angr-dev
 cd /home/ctf/tools
 git clone https://github.com/angr/angr-dev
 cd angr-dev
 ./setup.sh -i angr
 
-# Install ROPGadget
+## Install ROPGadget
 cd /home/ctf/tools
 git clone https://github.com/JonathanSalwan/ROPgadget
 cd ROPgadget
 python setup.py install
-
 
 ## Install Z3 Prover
 cd /home/ctf/tools
@@ -192,14 +187,9 @@ cd build
 make install
 python ../scripts/mk_make.py --python
 
+## Install qira
 cd /home/ctf/tools
 git clone https://github.com/BinaryAnalysisPlatform/qira.git
 cd qira/
 ./install.sh
-
-# cd /home/ctf/tools
-# git clone https://github.com/sqlmapproject/sqlmap.git sqlmap-dev
-# cd sqlmap-dev
-# python setup.py install
-
 
