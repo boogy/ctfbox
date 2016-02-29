@@ -14,8 +14,7 @@ RUN cd /home/ctf/ && \
     bash /home/ctf/setup.sh && \
     chown -R ctf: /home/ctf/tools
 
-EXPOSE 22
-EXPOSE 1337 3002 3003 4000
+EXPOSE 22 1337 3002 3003 4000
 
 USER ctf
 
