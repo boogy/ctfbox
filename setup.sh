@@ -25,7 +25,7 @@ apt-get -yq install libc6:i386 libncurses5:i386 libstdc++6:i386
 apt-get -yq install libc6-dev-i386
 
 # Enable ssh by default in the container
-update-rc.d ssh defaults && service ssh start
+# update-rc.d ssh defaults && service ssh start
 
 ## QEMU with MIPS/ARM - http://reverseengineering.stackexchange.com/questions/8829/cross-debugging-for-mips-elf-with-qemu-toolchain
 apt-get -y -q install qemu qemu-user qemu-user-static 'binfmt*' libc6-armhf-armel-cross debian-keyring debian-archive-keyring emdebian-archive-keyring
