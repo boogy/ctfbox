@@ -169,6 +169,16 @@ git clone https://github.com/angr/angr-dev
 cd angr-dev
 ./setup.sh -i angr
 
+## Replace ROPGadget with rp++
+
+apt-get install -yq cmake libboost-all-dev
+cd /home/ctf/tools
+git clone https://github.com/0vercl0k/rp.git
+cd rp
+git checkout next
+git submodule update --init --recursive
+mkdir build && cd build && cmake ../ && make && make install
+
 ## Install ROPGadget
 cd /home/ctf/tools
 git clone https://github.com/JonathanSalwan/ROPgadget
