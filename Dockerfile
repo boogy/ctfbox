@@ -2,7 +2,7 @@ FROM ubuntu:latest
 MAINTAINER boogy <theboogymaster@gmail.com>
 
 RUN echo "kernel.yama.ptrace_scope = 0" > /etc/sysctl.d/10-ptrace.conf && \
-    echo 0 > /proc/sys/kernel/yama/ptrace_scope && \
+    sysctl -w kernel.yama.ptrace_scope=0 && \
     useradd -m -s /bin/bash -p ctf ctf && \
     mkdir -p /home/ctf/tools && \
     mkdir -p /etc/sudoers.d/ && \
