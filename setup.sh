@@ -182,7 +182,7 @@ git submodule update --init --recursive
 
 # little hack to make it compile
 sed -i 's/find_package(Boost 1.59.0 COMPONENTS flyweight)/find_package(Boost)/g' CMakeLists.txt
-mkdir build && cd build && cmake ../ && make && cp ../bin/rp-lin-x64 /usr/local/bin/rp-lin-x64
+mkdir build && cd build && cmake ../ && make && cp ../bin/rp-lin-x64 /usr/local/bin/
 
 
 ## Install ROPGadget
