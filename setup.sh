@@ -169,6 +169,22 @@ git clone https://github.com/angr/angr-dev
 cd angr-dev
 ./setup.sh -i angr
 
+## Replace ROPGadget with rp++
+
+apt-get install -yq cmake libboost-all-dev clang-3.5
+export CC=/usr/bin/clang-3.5
+export CXX=/usr/bin/clang++-3.5
+cd /home/ctf/tools
+git clone https://github.com/0vercl0k/rp.git
+cd rp
+git checkout next
+git submodule update --init --recursive
+
+# little hack to make it compile
+sed -i 's/find_package(Boost 1.59.0 COMPONENTS flyweight)/find_package(Boost)/g' CMakeLists.txt
+mkdir build && cd build && cmake ../ && make && cp ../bin/rp-lin-x64 /usr/local/bin/
+
+
 ## Install ROPGadget
 cd /home/ctf/tools
 git clone https://github.com/JonathanSalwan/ROPgadget
