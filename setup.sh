@@ -59,12 +59,17 @@ chown -R ctf: /home/ctf/tools
 ## Install peda
 cd /home/ctf/tools
 git clone https://github.com/longld/peda.git
-echo "source ~/tools/peda/peda.py" >> /home/ctf/.gdbinit
+echo -en "define load_peda\n  source ~/tools/peda/peda.py\nend" >> ~/.gdbinit
 
 ## Install pwndbg
 cd /home/ctf/tools
 git clone https://github.com/zachriggle/pwndbg
-echo "#source ~/tools/pwndbg/gdbinit.py" >> /home/ctf/.gdbinit
+echo -en "define load_pwndbg\n  source ~/tools/pwndbg/gdbinit.py\nend" >> ~/.gdbinit
+
+## Install GDB Enhanced Features
+cd /home/ctf/tools
+git clone https://github.com/hugsy/gef.git
+echo -en "define load_gef\n  source ~/tools/gef/gef.py\nend" >> ~/.gdbinit
 
 ## Capstone for pwndbg
 cd /home/ctf/tools
