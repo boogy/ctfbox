@@ -8,6 +8,7 @@ getent passwd ctf | useradd -m -s /bin/bash ctf
 chown -R ctf: /home/ctf && chmod 4750 /home/ctf
 mkdir -p /home/ctf/tools && mkdir -p /etc/sudoeres.d/
 echo "ctf ALL=(ALL) NOPASSWD:ALL" > /etc/sudoeres.d/ctf
+echo "kernel.yama.ptrace_scope = 0" > /etc/sysctl.d/10-ptrace.conf
 
 ## Updates
 apt-get -y -q update
