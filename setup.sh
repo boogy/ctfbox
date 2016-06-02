@@ -206,6 +206,15 @@ cd build
 make install
 python ../scripts/mk_make.py --python
 
+## Install keystone engine
+cd /home/ctf/tools
+git clone https://github.com/keystone-engine/keystone.git
+mkdir build
+cd build
+../make-share.sh
+make install
+ldconfig
+
 ## Install qira
 #cd /home/ctf/tools
 #git clone https://github.com/BinaryAnalysisPlatform/qira.git
