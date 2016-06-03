@@ -41,6 +41,7 @@ List of some tools installed and examples
 
   * [Z3 Solver](https://github.com/Z3Prover/z3)
   * [Capstone](https://github.com/aquynh/capstone)
+  * [Keystone Engine](https://github.com/keystone-engine/keystone)
   * [Binwalk](http://binwalk.org/)
   * [radare2](https://github.com/radare/radare2)
   * [Afl](http://lcamtuf.coredump.cx/afl/)
