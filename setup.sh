@@ -3,55 +3,53 @@
 # Script forked from praetorian-inc/epictreasure
 # https://github.com/praetorian-inc/epictreasure
 #
+
 ## create a user
-getent passwd ctf | useradd -m -s /bin/bash ctf
-chown -R ctf: /home/ctf && chmod 4750 /home/ctf
-mkdir -p /home/ctf/tools && mkdir -p /etc/sudoeres.d/
-echo "ctf ALL=(ALL) NOPASSWD:ALL" > /etc/sudoeres.d/ctf
-echo "kernel.yama.ptrace_scope = 0" > /etc/sysctl.d/10-ptrace.conf
+#getent passwd ctf || useradd -m -s /bin/bash ctf
+#chown -R ctf: /home/ctf && chmod 4750 /home/ctf
+#mkdir -p /home/ctf/tools && mkdir -p /etc/sudoeres.d/
+#echo "ctf ALL=(ALL) NOPASSWD:ALL" > /etc/sudoeres.d/ctf
+#echo "kernel.yama.ptrace_scope = 0" > /etc/sysctl.d/10-ptrace.conf
 
 ## Updates
-apt-get -y -q update
-apt-get -y -q upgrade
-DEBIAN_FRONTEND=noninteractive apt-get -y -q install git sudo p7zip autoconf libssl-dev libpcap-dev \
-        python2.7 python-pip python-dev python3-pip python3-dev libffi-dev clang nasm \
-        tmux gdb gdb-multiarch foremost ipython stow build-essential virtualenvwrapper \
-        ltrace strace socat tcpdump john hydra vim curl wget nmap python-dbg g++ gcc \
-        netcat netcat6 openssh-server openssh-client lsof
+# apt-get -yq update
+# apt-get -yq upgrade
+# apt-get -yq install apt-utils python2.7 python-pip python2.7-dev python3-pip python3-dev python-dbg git \
+#     sudo p7zip autoconf libssl-dev libpcap-dev libffi-dev clang nasm tmux \
+#     gdb gdb-multiarch gdbserver foremost ipython stow build-essential virtualenvwrapper \
+#     ltrace strace socat tcpdump john hydra vim curl wget nmap \
+#     g++ gcc netcat netcat6 openssh-server openssh-client lsof
 
 ## Install 32 bit libs also
-dpkg --add-architecture i386
-apt-get update
-apt-get -yq install libc6:i386 libncurses5:i386 libstdc++6:i386
-apt-get -yq install libc6-dev-i386
-
-# Enable ssh by default in the container
-# update-rc.d ssh defaults && service ssh start
+# dpkg --add-architecture i386
+# apt update
+# apt-get -yq install libc6:i386 libncurses5:i386 libstdc++6:i386
+# apt-get -yq install libc6-dev-i386
 
 ## QEMU with MIPS/ARM - http://reverseengineering.stackexchange.com/questions/8829/cross-debugging-for-mips-elf-with-qemu-toolchain
-apt-get -y -q install qemu qemu-user qemu-user-static 'binfmt*' libc6-armhf-armel-cross debian-keyring debian-archive-keyring emdebian-archive-keyring
+apt-get -yq install qemu qemu-user qemu-user-static 'binfmt*' libc6-armhf-armel-cross debian-keyring debian-archive-keyring emdebian-archive-keyring
 tee /etc/apt/sources.list.d/emdebian.list << EOF
 deb http://mirrors.mit.edu/debian squeeze main
 deb http://www.emdebian.org/debian squeeze main
 EOF
 
-apt-get -y -q install libc6-mipsel-cross libc6-arm-cross
+apt-get -yq install libc6-mipsel-cross libc6-arm-cross
 mkdir /etc/qemu-binfmt
 ln -s /usr/mipsel-linux-gnu /etc/qemu-binfmt/mipsel
 ln -s /usr/arm-linux-gnueabihf /etc/qemu-binfmt/arm
 rm /etc/apt/sources.list.d/emdebian.list
-apt-get update
+apt update
 
 ## Install Binjitsu
-pip install --upgrade git+https://github.com/binjitsu/binjitsu.git
+pip2 install --upgrade git+https://github.com/binjitsu/binjitsu.git
 
 ## Install pwnlib-binutil
-apt-get install --yes -q software-properties-common
+apt-get install -yq software-properties-common
 apt-add-repository --yes ppa:pwntools/binutils
 apt-get update
 ARCHES="aarch64 alpha arm avr cris hppa ia64 m68k mips mips64 msp430 powerpc powerpc64 s390 sparc vax xscale i386 x86_64"
 for arch in $ARCHES; do
-    apt-get install -yq binutils-$arch-linux-gnu
+    apt-get -yq install binutils-$arch-linux-gnu
 done
 
 mkdir /home/ctf/tools && \
@@ -95,10 +93,10 @@ cd /home/ctf/tools
 git clone https://github.com/devttys0/binwalk
 cd binwalk
 python setup.py install
-apt-get install -yq squashfs-tools
+apt-get -yq install squashfs-tools
 
 ## Install Firmware-Mod-Kit
-#apt-get -y -q install zlib1g-dev liblzma-dev python-magic
+#apt-get -yq install zlib1g-dev liblzma-dev python-magic
 #cd /home/ctf/tools
 #wget https://firmware-mod-kit.googlecode.com/files/fmk_099.tar.gz
 #tar xvf fmk_099.tar.gz
@@ -120,7 +118,7 @@ git clone https://github.com/boogy/dotfiles.git
 
 ## Install Angr framework
 cd /home/ctf/tools
-pip install angr --upgrade
+pip2 install angr --upgrade
 
 ## Install american-fuzzy-lop
 apt-get -yq install clang llvm
@@ -140,8 +138,8 @@ rm afl-latest.tgz
 )
 
 ## Install apktool - from https://github.com/zardus/ctf-tools
-apt-get update
-apt-get install -yq default-jre
+apt update
+apt-get -yq install default-jre
 cd /home/ctf/tools
 wget https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool
 wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.0.2.jar
@@ -166,8 +164,8 @@ make -i
 
 ## Install Pillow
 apt-get build-dep python-imaging
-apt-get install -yq libjpeg8 libjpeg62-dev libfreetype6 libfreetype6-dev
-pip install Pillow
+apt-get -yq install libjpeg8 libjpeg62-dev libfreetype6 libfreetype6-dev
+pip2 install Pillow
 
 ## Install angr-dev
 cd /home/ctf/tools
@@ -177,7 +175,7 @@ cd angr-dev
 
 ## Replace ROPGadget with rp++
 
-apt-get install -yq cmake libboost-all-dev clang-3.5
+apt-get -yq install  cmake libboost-all-dev clang-3.5
 export CC=/usr/bin/clang-3.5
 export CXX=/usr/bin/clang++-3.5
 cd /home/ctf/tools
@@ -189,7 +187,6 @@ git submodule update --init --recursive
 # little hack to make it compile
 sed -i 's/find_package(Boost 1.59.0 COMPONENTS flyweight)/find_package(Boost)/g' CMakeLists.txt
 mkdir build && cd build && cmake ../ && make && cp ../bin/rp-lin-x64 /usr/local/bin/
-
 
 ## Install ROPGadget
 cd /home/ctf/tools
@@ -214,6 +211,8 @@ cd build
 ../make-share.sh
 make install
 ldconfig
+cd /home/ctf/tools/keystone/bindings/python
+sudo make install
 
 ## Install qira
 #cd /home/ctf/tools
@@ -222,7 +221,10 @@ ldconfig
 #./install.sh
 
 ## Python pip cool modules
-pip install --upgrade r2pipe
-pip install --upgrade distorm3
-pip install --upgrade pycrypto
-pip install --upgrade git+https://github.com/hellman/xortool.git
+pip2 install --upgrade r2pipe
+pip2 install --upgrade distorm3
+pip2 install --upgrade pycrypto
+pip2 install --upgrade git+https://github.com/hellman/xortool.git
+
+# enable ssh on the box
+update-rc.d ssh defaults && service ssh start
