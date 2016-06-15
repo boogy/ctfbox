@@ -1,7 +1,9 @@
 FROM ubuntu:latest
 MAINTAINER boogy <theboogymaster@gmail.com>
 
-RUN dpkg --add-architecture i386 && apt-get update && apt-get -yq install \
+RUN dpkg --add-architecture i386 && \
+        apt-get update && \
+        apt-get -yq install \
         python2.7 \
         python2.7-dev \
         python-pip \
@@ -48,8 +50,11 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get -yq install \
         libstdc++6:i386 \
         libc6-dev-i386
 
-RUN useradd -m -s /bin/bash ctf && chown -R ctf: /home/ctf && chmod 4750 /home/ctf && \
-        mkdir -p /home/ctf/tools && mkdir -p /etc/sudoeres.d/ && \
+RUN useradd -m -s /bin/bash ctf && \
+        chown -R ctf: /home/ctf && \
+        chmod 4750 /home/ctf && \
+        mkdir -p /home/ctf/tools && \
+        mkdir -p /etc/sudoeres.d/ && \
         echo "ctf ALL=(ALL) NOPASSWD:ALL" > /etc/sudoeres.d/ctf && \
         echo "kernel.yama.ptrace_scope = 0" > /etc/sysctl.d/10-ptrace.conf
 

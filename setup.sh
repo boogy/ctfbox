@@ -174,7 +174,6 @@ cd angr-dev
 ./setup.sh -i angr
 
 ## Replace ROPGadget with rp++
-
 apt-get -yq install  cmake libboost-all-dev clang-3.5
 export CC=/usr/bin/clang-3.5
 export CXX=/usr/bin/clang++-3.5
