@@ -2,7 +2,6 @@
 #
 # Script forked from praetorian-inc/epictreasure
 # https://github.com/praetorian-inc/epictreasure
-#
 
 ## create a user
 #getent passwd ctf || useradd -m -s /bin/bash ctf
