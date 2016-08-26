@@ -137,7 +137,7 @@ rm afl-latest.tgz
 )
 
 ## Install apktool - from https://github.com/zardus/ctf-tools
-apt update
+apt-get update
 apt-get -yq install default-jre
 cd /home/ctf/tools
 wget https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool
@@ -225,5 +225,6 @@ pip2 install --upgrade pycrypto
 pip2 install --upgrade git+https://github.com/hellman/xortool.git
 
 # enable ssh on the box
-update-rc.d ssh defaults && service ssh start
+systemctl start ssh.service && \
+systemctl enable ssh.service
 
