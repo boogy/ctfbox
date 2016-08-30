@@ -147,20 +147,6 @@ mv apktool /bin/
 chmod 755 /bin/apktool
 chmod 755 /bin/apktool.jar
 
-## Install preeny
-cd /home/ctf/tools
-git clone --depth 1 https://github.com/zardus/preeny
-PATH=$PWD/../crosstool/bin:$PATH
-cd preeny
-for i in ../../crosstool/bin/*-gcc
-do
-    t=$(basename $i)
-    CC=$t make -j $(nproc) -i
-done
-PLATFORM=-m32 setarch i686 make -i
-mv x86_64-linux-gnu i686-linux-gnu
-make -i
-
 ## Install Pillow
 apt-get build-dep python-imaging
 apt-get -yq install libjpeg8 libjpeg62-dev libfreetype6 libfreetype6-dev
