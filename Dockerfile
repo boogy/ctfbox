@@ -97,12 +97,12 @@ RUN pip2 install --upgrade r2pipe \
 
 ## Install peda
 RUN git clone https://github.com/longld/peda.git /home/ctf/tools/peda \
-    && echo -en "define load_peda\n  source ~/tools/peda/peda.py\nend" >> ~/.gdbinit
+    && echo -en "define load_peda\n  source /home/ctf/tools/peda/peda.py\nend\n" >> /home/ctf/.gdbinit
 
 
 ## Install pwndbg
 RUN git clone https://github.com/zachriggle/pwndbg /home/ctf/tools/pwndbg \
-    && echo -en "define load_pwndbg\n  source ~/tools/pwndbg/gdbinit.py\nend" >> ~/.gdbinit \
+    && echo -en "\ndefine load_pwndbg\n  source /home/ctf/tools/pwndbg/gdbinit.py\nend\n" >> /home/ctf/.gdbinit \
     && pip3 install pycparser
 
 
