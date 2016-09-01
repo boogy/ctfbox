@@ -70,7 +70,7 @@ RUN /bin/echo -e "toor\ntoor"|passwd root
 
 ## setup a user
 RUN useradd -m -s /bin/bash ctf \
-    && usermod -aG sudo ctf \
+    && usermod -aG sudo,admin ctf \
     && /bin/echo -e "ctf\nctf"|passwd ctf \
     && chmod 4750 /home/ctf \
     && mkdir -p /home/ctf/tools \
