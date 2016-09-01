@@ -83,17 +83,17 @@ RUN useradd -m -s /bin/bash ctf \
 ## clone my dotfiles
 RUN git clone https://github.com/boogy/dotfiles.git /home/ctf/dotfiles
 
-
-## Install Binjitsu
-RUN pip2 install --upgrade git+https://github.com/binjitsu/binjitsu.git
-
-
 ## Other python cool pip modules
-RUN pip2 install --upgrade r2pipe \
+RUN pip2 install --upgrade pip \
+    && pip2 install --upgrade r2pipe \
     && pip2 install --upgrade Pillow \
     && pip2 install --upgrade distorm3 \
     && pip2 install --upgrade pycrypto \
     && pip2 install --upgrade git+https://github.com/hellman/xortool.git
+
+
+## Install Binjitsu
+RUN pip2 install --upgrade git+https://github.com/binjitsu/binjitsu.git
 
 
 ## Install peda
