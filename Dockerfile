@@ -70,12 +70,13 @@ RUN /bin/echo -e "toor\ntoor"|passwd root
 
 ## setup a user
 RUN useradd -m -s /bin/bash ctf \
+    && usermod -aG sudo ctf \
     && /bin/echo -e "ctf\nctf"|passwd ctf \
     && chmod 4750 /home/ctf \
     && mkdir -p /home/ctf/tools \
     && chown -R ctf: /home/ctf \
-    && mkdir -p /etc/sudoeres.d \
-    && echo "ctf ALL=(ALL) NOPASSWD:ALL" > /etc/sudoeres.d/ctf \
+    && mkdir -p /etc/sudoers.d \
+    && echo "ctf ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/ctf \
     && echo "kernel.yama.ptrace_scope = 0" > /etc/sysctl.d/10-ptrace.conf
 
 
