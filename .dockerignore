@@ -1,4 +1,3 @@
-et_setup.sh
-Vagrantfile
+setup.sh
 .git*
 README.md

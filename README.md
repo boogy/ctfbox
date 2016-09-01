@@ -6,12 +6,12 @@ CTFBOX
 When playing CTFs I like to have all the tools ready to rock when needed.
 This docker image will provide these tools installed on ubuntu:latest image.
 
-It's also possible to build this box using [Vagrant](https://www.vagrantup.com/).
-
 The script(s) was forked from [praetorian-inc/epictreasure](https://github.com/praetorian-inc/epictreasure)
 
-Installation
-=============
+Similar configurations [ctf-tools](https://github.com/zardus/ctf-tools)
+
+Installation/ Build
+=====================
 
 ```bash
 git clone https://github.com/boogy/ctfbox.git
@@ -35,7 +35,13 @@ Run the ctfbox
 Start the image
 
 ```bash
-docker run -it ctfbox
+docker run -it boogy/ctfbox
+```
+
+If you have problems with gdb or gdbserver you can run the container in privileged mode and with the host network.
+
+```bash
+sudo docker run -it --privileged --net=host boogy/ctfbox
 ```
 
 List of some tools installed and examples
@@ -53,7 +59,6 @@ List of some tools installed and examples
   * [binjitsu](https://github.com/binjitsu/binjitsu)
   * [peda](https://github.com/longld/peda)
   * [pwndbg](https://github.com/zachriggle/pwndbg)
-  * [preeny](https://github.com/zardus/preeny)
 
 
 Screenshots
@@ -79,12 +84,6 @@ Radare2
 Peda
 ------
 ![start](http://i.imgur.com/P1BF5mp.png)
-
-
-Pwndbg
----------
-Here's a screenshot of `pwndbg` working on an aarch64 binary running under `qemu-user`.
-![aarch64](https://raw.githubusercontent.com/zachriggle/pwndbg/master/caps/a.png)
 
 
 ROPGadget

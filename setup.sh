@@ -27,18 +27,18 @@
 pip install --upgrade pip
 
 ## QEMU with MIPS/ARM - http://reverseengineering.stackexchange.com/questions/8829/cross-debugging-for-mips-elf-with-qemu-toolchain
-apt-get -yq install qemu qemu-user qemu-user-static 'binfmt*' libc6-armhf-armel-cross debian-keyring debian-archive-keyring emdebian-archive-keyring
-tee /etc/apt/sources.list.d/emdebian.list << EOF
-deb http://mirrors.mit.edu/debian squeeze main
-deb http://www.emdebian.org/debian squeeze main
-EOF
+#apt-get -yq install qemu qemu-user qemu-user-static 'binfmt*' libc6-armhf-armel-cross debian-keyring debian-archive-keyring emdebian-archive-keyring
+#tee /etc/apt/sources.list.d/emdebian.list << EOF
+#deb http://mirrors.mit.edu/debian squeeze main
+#deb http://www.emdebian.org/debian squeeze main
+#EOF
 
-apt-get -yq install libc6-mipsel-cross libc6-arm-cross
-mkdir /etc/qemu-binfmt
-ln -s /usr/mipsel-linux-gnu /etc/qemu-binfmt/mipsel
-ln -s /usr/arm-linux-gnueabihf /etc/qemu-binfmt/arm
-rm /etc/apt/sources.list.d/emdebian.list
-apt update
+#apt-get -yq install libc6-mipsel-cross libc6-arm-cross
+#mkdir /etc/qemu-binfmt
+#ln -s /usr/mipsel-linux-gnu /etc/qemu-binfmt/mipsel
+#ln -s /usr/arm-linux-gnueabihf /etc/qemu-binfmt/arm
+#rm /etc/apt/sources.list.d/emdebian.list
+#apt update
 
 ## Install Binjitsu
 pip2 install --upgrade git+https://github.com/binjitsu/binjitsu.git
@@ -64,11 +64,6 @@ echo -en "define load_peda\n  source ~/tools/peda/peda.py\nend" >> ~/.gdbinit
 cd /home/ctf/tools
 git clone https://github.com/zachriggle/pwndbg
 echo -en "define load_pwndbg\n  source ~/tools/pwndbg/gdbinit.py\nend" >> ~/.gdbinit
-
-## Install GDB Enhanced Features
-cd /home/ctf/tools
-git clone https://github.com/hugsy/gef.git
-echo -en "define load_gef\n  source ~/tools/gef/gef.py\nend" >> ~/.gdbinit
 
 ## Capstone for pwndbg
 cd /home/ctf/tools
@@ -137,17 +132,6 @@ rm afl-latest.tgz
   make install
 )
 
-## Install apktool - from https://github.com/zardus/ctf-tools
-apt-get update
-apt-get -yq install default-jre
-cd /home/ctf/tools
-wget https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool
-wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.0.2.jar
-mv apktool_2.0.2.jar /bin/apktool.jar
-mv apktool /bin/
-chmod 755 /bin/apktool
-chmod 755 /bin/apktool.jar
-
 ## Install Pillow
 apt-get build-dep python-imaging
 apt-get -yq install libjpeg8 libjpeg62-dev libfreetype6 libfreetype6-dev
@@ -168,7 +152,6 @@ git clone https://github.com/0vercl0k/rp.git
 cd rp
 git checkout next
 git submodule update --init --recursive
-
 # little hack to make it compile
 sed -i 's/find_package(Boost 1.59.0 COMPONENTS flyweight)/find_package(Boost)/g' CMakeLists.txt
 mkdir build && cd build && cmake ../ && make && cp ../bin/rp-lin-x64 /usr/local/bin/
