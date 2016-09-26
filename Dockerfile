@@ -77,7 +77,8 @@ RUN useradd -m -s /bin/bash ctf \
     && chown -R ctf: /home/ctf \
     && mkdir -p /etc/sudoers.d \
     && echo "ctf ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/ctf \
-    && echo "kernel.yama.ptrace_scope = 0" > /etc/sysctl.d/10-ptrace.conf
+    && echo "kernel.yama.ptrace_scope = 0" > /etc/sysctl.d/10-ptrace.conf, \
+    && sysctl -p
 
 
 ## clone my dotfiles
