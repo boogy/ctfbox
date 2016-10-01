@@ -191,7 +191,6 @@ RUN git clone https://github.com/keystone-engine/keystone.git /home/ctf/tools/ke
     && cd /home/ctf/tools/keystone/bindings/python \
     && make install
 
-
 EXPOSE 22 1337 3002 3003 4000
 
 USER ctf
