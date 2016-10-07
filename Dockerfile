@@ -93,8 +93,7 @@ RUN pip2 install --upgrade pip \
 
 
 ## Install Binjitsu
-#RUN pip2 install --upgrade git+https://github.com/binjitsu/binjitsu.git
-RUN pip2 install git+https://github.com/binjitsu/binjitsu.git
+RUN pip install --upgrade git+https://github.com/Gallopsled/pwntools.git
 
 
 ## Install peda
