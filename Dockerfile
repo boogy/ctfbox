@@ -2,7 +2,6 @@ FROM ubuntu:latest
 MAINTAINER boogy <theboogymaster@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
-
 RUN dpkg --add-architecture i386 \
     && apt-get update \
     && apt-get -yq install \
