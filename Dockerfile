@@ -9,6 +9,7 @@ RUN dpkg --add-architecture i386 \
     python2.7 \
     python2.7-dev \
     python-pip \
+    python3 \
     python3-pip \
     python3-dev \
     python-dbg \
@@ -113,7 +114,8 @@ RUN git clone https://github.com/aquynh/capstone /home/ctf/tools/capstone \
     && git checkout -t origin/next \
     && ./make.sh install \
     && cd /home/ctf/tools/capstone/bindings/python \
-    && python3 setup.py install
+    && python3 setup.py install \
+    && python2 setup.py install
 
 
 ## Install radare2
