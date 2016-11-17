@@ -111,6 +111,7 @@ RUN git clone https://github.com/zachriggle/pwndbg /home/ctf/tools/pwndbg \
 ## Install capstone
 RUN git clone https://github.com/aquynh/capstone /home/ctf/tools/capstone \
     && cd /home/ctf/tools/capstone \
+    && ./make.sh \
     && ./make.sh install \
     && cd /home/ctf/tools/capstone/bindings/python \
     && python3 setup.py install \
