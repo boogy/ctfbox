@@ -111,7 +111,6 @@ RUN git clone https://github.com/zachriggle/pwndbg /home/ctf/tools/pwndbg \
 ## Install capstone
 RUN git clone https://github.com/aquynh/capstone /home/ctf/tools/capstone \
     && cd /home/ctf/tools/capstone \
-    && git checkout -t origin/next \
     && ./make.sh install \
     && cd /home/ctf/tools/capstone/bindings/python \
     && python3 setup.py install \
@@ -131,9 +130,9 @@ RUN git clone https://github.com/devttys0/binwalk /home/ctf/tools/binwalk \
 
 
 ## Uninstall capstone for python2
-RUN pip2 uninstall capstone -y \
-    && cd /home/ctf/tools/capstone/bindings/python \
-    && python setup.py install
+#RUN pip2 uninstall capstone -y \
+#    && cd /home/ctf/tools/capstone/bindings/python \
+#    && python3 setup.py install
 
 
 ## Install american-fuzzy-lop
