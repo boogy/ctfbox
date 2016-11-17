@@ -1,6 +1,5 @@
 CTFBOX
 =======
-
 [![](https://images.microbadger.com/badges/image/boogy/ctfbox.svg)](http://microbadger.com/images/boogy/ctfbox "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/boogy/ctfbox.svg)](http://microbadger.com/images/boogy/ctfbox "Get your own version badge on microbadger.com")
 
 When playing CTFs I like to have all the tools ready to rock when needed.
