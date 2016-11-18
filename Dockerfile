@@ -8,6 +8,9 @@ RUN dpkg --add-architecture i386 \
     build-essential \
     python2.7 \
     python2.7-dev \
+    python-dev \
+    python-virtualenv \
+    python-virtualenvwrapper \
     python-pip \
     python3 \
     python3-pip \
