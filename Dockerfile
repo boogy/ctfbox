@@ -14,8 +14,6 @@ RUN dpkg --add-architecture i386 \
     python-pyside \
     python-dev \
     python-dev \
-    python-virtualenv \
-    python-virtualenvwrapper \
     python-pip \
     python-virtualenv \
     virtualenvwrapper \
