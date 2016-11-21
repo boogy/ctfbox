@@ -13,6 +13,9 @@ RUN dpkg --add-architecture i386 \
     python-pycryptopp \
     python-pyside \
     python-dev \
+    python-dev \
+    python-virtualenv \
+    python-virtualenvwrapper \
     python-pip \
     python-virtualenv \
     virtualenvwrapper \
@@ -37,6 +40,8 @@ RUN dpkg --add-architecture i386 \
     libssl-dev \
     libpcap-dev \
     libffi-dev \
+    libqt4-dev \
+    graphviz-dev \
     cmake \
     clang \
     llvm \
