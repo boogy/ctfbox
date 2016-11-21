@@ -8,13 +8,21 @@ RUN dpkg --add-architecture i386 \
     build-essential \
     python2.7 \
     python2.7-dev \
-    python-pip \
-    python3 \
-    python3-pip \
-    python3-dev \
     python-dbg \
     python-imaging \
     python-pycryptopp \
+    python-pyside \
+    python-dev \
+    python-pip \
+    python-virtualenv \
+    virtualenvwrapper \
+    python3 \
+    python3-pip \
+    python3-dev \
+    libqt4-dev \
+    libxml2-dev \
+    libxslt1-dev \
+    libgraphviz-dev \
     libjpeg8 \
     libjpeg62-dev \
     libfreetype6 \
@@ -148,6 +156,14 @@ RUN wget --quiet http://lcamtuf.coredump.cx/afl/releases/afl-latest.tgz -O /home
 RUN git clone https://github.com/angr/angr-dev /home/ctf/tools/angr-dev \
     && cd /home/ctf/tools/angr-dev \
     && ./setup.sh -i -e angr
+
+# RUN git clone https://github.com/angr/angr-dev /home/ctf/tools/angr-dev \
+#     && cd /home/ctf/tools/angr-dev \
+#     && . /usr/local/bin/virtualenvwrapper.sh \
+#     && mkvirtualenv angr \
+#     && echo "I know this is a bad idea."|./setup.sh -i \
+#     && deactivate
+#     # && ./setup.sh -i -e angr
 
 
 ## Install rp++
