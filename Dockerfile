@@ -92,7 +92,6 @@ RUN useradd -m -s /bin/bash ctf \
     && echo "kernel.yama.ptrace_scope = 0" > /etc/sysctl.d/10-ptrace.conf, \
     && sysctl -p
 
-
 ## clone my dotfiles
 RUN git clone https://github.com/boogy/dotfiles.git /home/ctf/dotfiles
 
