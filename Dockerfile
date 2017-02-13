@@ -103,21 +103,17 @@ RUN pip2 install --upgrade pip \
     && pip2 install --upgrade pycrypto \
     && pip2 install --upgrade git+https://github.com/hellman/xortool.git
 
-
 ## Install Binjitsu
 RUN pip install --upgrade git+https://github.com/Gallopsled/pwntools.git
-
 
 ## Install peda
 RUN git clone https://github.com/longld/peda.git /home/ctf/tools/peda \
     && echo -en "define load_peda\n  source /home/ctf/tools/peda/peda.py\nend\n" >> /home/ctf/.gdbinit
 
-
 ## Install pwndbg
 RUN git clone https://github.com/zachriggle/pwndbg /home/ctf/tools/pwndbg \
     && echo -en "\ndefine load_pwndbg\n  source /home/ctf/tools/pwndbg/gdbinit.py\nend\n" >> /home/ctf/.gdbinit \
     && pip3 install pycparser
-
 
 ## Install capstone
 RUN git clone https://github.com/aquynh/capstone /home/ctf/tools/capstone \
@@ -128,24 +124,20 @@ RUN git clone https://github.com/aquynh/capstone /home/ctf/tools/capstone \
     && python3 setup.py install \
     && python2 setup.py install
 
-
 ## Install radare2
 RUN git clone https://github.com/radare/radare2 /home/ctf/tools/radare2 \
     && cd /home/ctf/tools/radare2 \
     && ./sys/install.sh
-
 
 ## Install binwalk
 RUN git clone https://github.com/devttys0/binwalk /home/ctf/tools/binwalk \
     && cd /home/ctf/tools/binwalk \
     && python setup.py install
 
-
 ## Uninstall capstone for python2
 #RUN pip2 uninstall capstone -y \
 #    && cd /home/ctf/tools/capstone/bindings/python \
 #    && python3 setup.py install
-
 
 ## Install american-fuzzy-lop
 RUN wget --quiet http://lcamtuf.coredump.cx/afl/releases/afl-latest.tgz -O /home/ctf/tools/afl-latest.tgz \
@@ -153,7 +145,6 @@ RUN wget --quiet http://lcamtuf.coredump.cx/afl/releases/afl-latest.tgz -O /home
     && tar -xzvf afl-latest.tgz \
     && rm afl-latest.tgz \
     && (cd afl-*;make;(cd llvm_mode;make);make install)
-
 
 ## Install angr
 RUN git clone https://github.com/angr/angr-dev /home/ctf/tools/angr-dev \
@@ -167,7 +158,6 @@ RUN git clone https://github.com/angr/angr-dev /home/ctf/tools/angr-dev \
 #     && echo "I know this is a bad idea."|./setup.sh -i \
 #     && deactivate
 #     # && ./setup.sh -i -e angr
-
 
 ## Install rp++
 RUN apt-get install -yq clang-3.5 \
