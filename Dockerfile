@@ -75,7 +75,10 @@ RUN dpkg --add-architecture i386 \
     libc6-dev-i386 \
     squashfs-tools \
     apktool \
-    libimage-exiftool-perl
+    libimage-exiftool-perl \
+    qemu \
+    qemu-user \
+    qemu-user-static
 
 ## super root password
 RUN /bin/echo -e "toor\ntoor"|passwd root
