@@ -192,7 +192,6 @@ RUN git clone https://github.com/Z3Prover/z3.git /home/ctf/tools/z3 \
     && cd build \
     && make install
 
-
 ## Install keystone engine
 RUN git clone https://github.com/keystone-engine/keystone.git /home/ctf/tools/keystone \
     && cd /home/ctf/tools/keystone \
