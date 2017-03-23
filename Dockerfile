@@ -153,7 +153,7 @@ RUN wget --quiet http://lcamtuf.coredump.cx/afl/releases/afl-latest.tgz -O /home
 #RUN git clone https://github.com/angr/angr-dev /home/ctf/tools/angr-dev \
 #    && cd /home/ctf/tools/angr-dev \
 #    && ./setup.sh -i -e angr
-pip2 install angr
+RUN pip2 install angr
 
 # RUN git clone https://github.com/angr/angr-dev /home/ctf/tools/angr-dev \
 #     && cd /home/ctf/tools/angr-dev \
