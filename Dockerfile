@@ -206,6 +206,7 @@ RUN git clone https://github.com/keystone-engine/keystone.git /home/ctf/tools/ke
 EXPOSE 22 1337 3002 3003 4000
 
 USER ctf
+
 WORKDIR /home/ctf
 
 CMD ["/bin/bash", "-i"]
