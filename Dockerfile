@@ -150,9 +150,10 @@ RUN wget --quiet http://lcamtuf.coredump.cx/afl/releases/afl-latest.tgz -O /home
     && (cd afl-*;make;(cd llvm_mode;make);make install)
 
 ## Install angr
-RUN git clone https://github.com/angr/angr-dev /home/ctf/tools/angr-dev \
-    && cd /home/ctf/tools/angr-dev \
-    && ./setup.sh -i -e angr
+#RUN git clone https://github.com/angr/angr-dev /home/ctf/tools/angr-dev \
+#    && cd /home/ctf/tools/angr-dev \
+#    && ./setup.sh -i -e angr
+pip2 install angr
 
 # RUN git clone https://github.com/angr/angr-dev /home/ctf/tools/angr-dev \
 #     && cd /home/ctf/tools/angr-dev \
