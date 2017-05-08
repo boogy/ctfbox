@@ -204,11 +204,14 @@ RUN git clone https://github.com/keystone-engine/keystone.git /home/ctf/tools/ke
     && cd /home/ctf/tools/keystone/bindings/python \
     && make install
 
+## Install manticore
+RUN git clone --depth 1 https://github.com/trailofbits/manticore.git \
+    && cd manticore \
+    && pip install --no-binary capstone .
+
 EXPOSE 22 1337 3002 3003 4000
 
 USER ctf
-
 WORKDIR /home/ctf
 
 CMD ["/bin/bash", "-i"]
-
