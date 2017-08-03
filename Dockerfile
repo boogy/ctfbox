@@ -212,6 +212,7 @@ RUN git clone --depth 1 https://github.com/trailofbits/manticore.git \
 EXPOSE 22 1337 3002 3003 4000
 
 USER ctf
+
 WORKDIR /home/ctf
 
 CMD ["/bin/bash", "-i"]
