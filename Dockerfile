@@ -210,7 +210,6 @@ RUN git clone https://github.com/keystone-engine/keystone.git /home/ctf/tools/ke
 #    && pip install --no-binary capstone .
 
 EXPOSE 22 1337 3002 3003 4000
-
 USER ctf
 WORKDIR /home/ctf
 
